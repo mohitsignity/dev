@@ -14,7 +14,7 @@
     router.get('/createevent', isLoggedIn, function(req, res) {
         res.render('createevent', { message: req.flash('createeventMessage',''),user : req.user  });
         /*res.render('createevent.ejs', {
-            user : req.user // get the user out of session and pass to template
+            user : req.user // get the user out of saaaession and pass to template
         });*/
 
     });
