@@ -1,0 +1,43 @@
+<% include ./partials/header %>
+<!-- views/profile.ejs -->
+    <!-- Sidebar -->
+    <div id="wrapper" class="toggled">
+        <% include ./partials/navigation %>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Create Booking</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <a href="#menu-toggle" class="btn btn-secondary btn-primary" id="menu-toggle"></a>
+
+                
+                <div class="container">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <!-- LOGIN FORM -->
+                        <form action="/booking/createbooking" method="post">
+                            <div class="form-group">
+                                <label>Booking Name</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                            <div class="form-group">
+                              <label for="sel1">Select Event</label>
+                              <select class="form-control" id="sel1" name="id_event">
+                                 <%if(eventArray.length){%>
+                                     <% for(let eventRecord of eventArray){ %>
+                                         <option value="<%= eventRecord._id; %>"><%= eventRecord.local.name; %></option>
+                                    <%}%>
+                                <%}%>        
+                              </select>
+                             </div>
+                            <button type="submit" class="btn btn-warning btn-lg">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+  
+<% include ./partials/footer %>

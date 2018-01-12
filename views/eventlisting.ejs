@@ -1,0 +1,42 @@
+<% include ./partials/header %>
+<!-- views/profile.ejs -->
+    <!-- Sidebar -->
+    <div id="wrapper" class="toggled">
+        <% include ./partials/navigation %>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Event Listing</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <a href="#menu-toggle" class="btn btn-secondary btn-primary" id="menu-toggle"></a>
+                <br/><br/>
+                <div class="container">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Event Name</th>
+                        <th>Created event time</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <%if(userArray.length){%>
+                            <% for(let userRecord of userArray){ %>
+                              <tr class="success">
+                                <td><%= userRecord.local.name; %></td>
+                                <td><%= userRecord.local.created; %></td>
+                                <td><a href="/event/createevent"> Add</a> / <a href="/event/edit/<%= userRecord._id; %>" > Edit </a> / <a href="/event/delete/<%= userRecord._id; %>" onclick="return confirm('Are you sure?')">Delete</a></td>
+                              </tr>
+                             <%}%>
+                         <%}%>     
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+  
+<% include ./partials/footer %>

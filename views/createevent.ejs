@@ -1,0 +1,40 @@
+<% include ./partials/header %>
+<!-- views/profile.ejs -->
+    <!-- Sidebar -->
+    <div id="wrapper" class="toggled">
+        <% include ./partials/navigation %>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Create Event</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <a href="#menu-toggle" class="btn btn-secondary btn-primary" id="menu-toggle"></a>
+
+                <% if(message.success){ %>
+                    <div class="alert alert-success" role="alert">
+                        <%=message.success%>
+                    </div>
+                <% } %>
+
+                <div class="container">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <!-- LOGIN FORM -->
+                        <form action="/event/createevent" method="post">
+                          
+                            <div class="form-group">
+                                <label>Event Name</label>
+                                <input type="text" class="form-control" name="eventname">
+                            </div>
+                        
+                            <button type="submit" class="btn btn-warning btn-lg">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+  
+<% include ./partials/footer %>

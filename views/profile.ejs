@@ -1,0 +1,65 @@
+<% include ./partials/header %>
+<!-- views/profile.ejs -->
+    <!-- Sidebar -->
+    <div id="wrapper" class="toggled">
+        <% include ./partials/navigation %>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Profile Page</h1>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <a href="#menu-toggle" class="btn btn-secondary btn-primary" id="menu-toggle">Toggle Menu</a>
+                    <br/><br/>
+                <div class="row">
+                    <!-- LOCAL INFORMATION -->
+                    <div class="col-sm-12">
+                        <a href="/profileEdit" class="btn btn-secondary" id="menu-toggle">Profile edit</a>
+                        <table class="table table table-bordered" >
+                            <tbody>
+                              <tr>
+                                <td>id</td>
+                                <td><%= user._id %></td>
+                              </tr>
+                              <tr>
+                                <td>Name</td>
+                                <td><%= user.local.name %></td>
+                              </tr>
+                              <tr>
+                                <td>email</td>
+                                <td><%= user.local.email %></td>
+                              </tr>
+                              <tr>
+                                <td>Address</td>
+                                <td><%= user.local.address %></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                
+                <%if (user.google.id) { %>
+                <div class="row">
+                    <!-- GOOGLE INFORMATION -->
+                    <div class="col-sm-6">
+                        <div class="well">
+                            <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google</h3>
+
+                                <p>
+                                    <strong>id</strong>: <%= user.google.id %><br>
+                                    <strong>token</strong>: <%= user.google.token %><br>
+                                    <strong>email</strong>: <%= user.google.email %><br>
+                                    <strong>name</strong>: <%= user.google.name %>
+                                </p>
+
+                        </div>
+                    </div>
+                </div>
+               <% } %>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+  
+<% include ./partials/footer %>
